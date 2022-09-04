@@ -8,9 +8,9 @@ Current behaviour:
    2. With moving the pointer sometimes is disappearing.
    3. The line is going to another, not expected line.
 
-Expected behaviour:
+Expected behaviour:  
    The created angles should be squared, moving pointer should be always showed.
 
-In plans:
+In plans:  
    Make a pointer with a different colour to make it distinguishable from the
    painted lines.
