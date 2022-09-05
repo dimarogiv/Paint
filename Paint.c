@@ -20,25 +20,25 @@ int main (void)
                                         move_box(x,y,width,high,col,1,mode);
                                         y--;
                                 }
-                                        break;
+                                break;
                         case 66:
-                                        if(y+high<61){
+                                if(y+high<61){
                                         move_box(x,y,width,high,col,2,mode);
                                         y++;
                                 }
-                                        break;
+                                break;
                         case 67:
-                                        if(x+width<160){
+                                if(x+width<160){
                                         move_box(x,y,width,high,col,3,mode);
                                         x++;
                                 }
-                                        break;
+                                break;
                         case 68:
-                                        if(x>0){
+                                if(x>0){
                                         move_box(x,y,width,high,col,4,mode);
                                         x--;
                                 }
-                                        break;
+                                break;
                         case 112:{
                                          mode=1;
                                          break;
