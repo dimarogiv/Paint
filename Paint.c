@@ -8,34 +8,37 @@ void clearscr(void);
 int main (void)
 {
         clearscr();
-        int x=50,y=20,high=1,width=1,col;
+        int x=50,y=20,high=1,width=1,col=1;
         char ch = 0; 
         bool mode=0;
+        create_box(x,y,width,high,col);
         while (ch != '.'){
                 for(ch=27;ch==27||ch==91;ch=getch());
                 switch(ch){
-                        case 65:{
-                                        move_box(x,y,width,1,col,1,mode);
+                        case 65:
+                                if(y>0){
+                                        move_box(x,y,width,high,col,1,mode);
                                         y--;
-                                        break;
                                 }
-                        case 66:{
-                                        move_box(x,y,width,1,col,2,mode);
+                                        break;
+                        case 66:
+                                        if(y+high<61){
+                                        move_box(x,y,width,high,col,2,mode);
                                         y++;
-                                        break;
                                 }
-
-                        case 67:{
-                                        move_box(x,y,1,high,col,3,mode);
+                                        break;
+                        case 67:
+                                        if(x+width<160){
+                                        move_box(x,y,width,high,col,3,mode);
                                         x++;
-                                        break;
                                 }
-
-                        case 68:{
-                                        move_box(x+width-1,y,1,high,col,4,mode);
+                                        break;
+                        case 68:
+                                        if(x>0){
+                                        move_box(x,y,width,high,col,4,mode);
                                         x--;
-                                        break;
                                 }
+                                        break;
                         case 112:{
                                          mode=1;
                                          break;
@@ -63,8 +66,8 @@ int main (void)
 bool move_box(int x, int y, int length, int width, int color, int direction, bool mode){ // 1=up, 2=down, 3=right, 4=left
         switch(direction){
                 case 1:
-                        if(mode==0)create_box(x,y+width,length,1,0);
-                        create_box(x,y,length,1,color);
+                        if(mode==0)create_box(x,y+width-1,length,1,0);
+                        create_box(x,y-1,length,1,color);
                         break;
                 case 2:
                         if(mode==0)create_box(x,y,length,1,0);
@@ -75,8 +78,8 @@ bool move_box(int x, int y, int length, int width, int color, int direction, boo
                         create_box(x+length,y,1,width,color);
                         break;
                 case 4:
-                        if(mode==0)create_box(x+length,y,1,width,0);
-                        create_box(x,y,1,width,color);
+                        if(mode==0)create_box(x+length-1,y,1,width,0);
+                        create_box(x-1,y,1,width,color);
                         break;
                 default:
                         return 1;
